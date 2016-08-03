@@ -1,0 +1,23 @@
+/*
+======
+Animações utilizadas
+======
+*/
+@keyframes welcome {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+   transform: scale(0);
+   opacity: 0;
+  }
+  82.5% {
+    transform: scale(1.03);
+    timing-function: ease-out;
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+  }
+}

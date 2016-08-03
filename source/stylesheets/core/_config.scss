@@ -1,0 +1,16 @@
+/*
+======
+Configurações gerais (variáveis)
+======
+*/
+
+/* Fontes */
+$tamanho-base: 16px; // Tamanho base para a fonte
+$fonte-primaria: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Tamanhos */
+$breakpoints: (
+  "sm": 767px,
+  "md": 992px,
+  "lg": 1200px
+);
