@@ -3,47 +3,15 @@
 // Core (estilos base, configurações, funções, etc)
 @import "core/reset";
 @import "core/config";
+@import "core/functions";
+@import "core/mixins";
+@import "core/placeholders";
 @import "core/colors";
 @import "core/animations";
 @import "core/base";
 
 // Components (componentes genéricos)
+@import "components/buttons";
 
-.logo img {
-  height: 18.75em;
-  margin-top: 6em;
-}
-
-h1 {
-  color: rgba(0,0,0,0.5);
-  font-family: $fonte-primaria;
-  font-size: 1.8em;
-  font-weight: 400;
-  margin: 0;
-}
-
-.doc {
-  margin: 3em 0;
-  font-family: $fonte-primaria;
-  font-size: 1.1em;
-  font-weight: 300;
-
-  a {
-    border: 1px solid white;
-    border-radius: 3px;
-    padding: 0.75em 0.7em;
-    color: white;
-    text-decoration: none;
-    transition: color 0.1s linear;
-    &:hover {
-      background: rgba(0,0,0,0.2);
-      color: white;
-      transition: all 0.15s linear;
-    }
-  }
-}
-
-.welcome {
-  animation-name: welcome;
-  animation-duration: .9s;
-}
+// Componentes da UI (header, footer, sidebar, widgets, etc)
+@import "components/website";

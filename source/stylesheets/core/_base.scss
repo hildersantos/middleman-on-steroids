@@ -1,7 +1,6 @@
 /*
-======
 Estilos globais (body/html, parágrafos, classes de ajuda, etc)
-======
+----------
 */
 
 body {
@@ -9,4 +8,11 @@ body {
   text-align: center;
   font-family: $fonte-primaria;
   font-size: 1em;
+}
+h1 {
+  color: rgba(0,0,0,0.5);
+  font-family: $fonte-primaria;
+  font-size: 1.8em;
+  font-weight: 400;
+  margin: 0;
 }
