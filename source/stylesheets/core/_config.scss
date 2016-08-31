@@ -9,7 +9,10 @@ $fonte-primaria: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 /* Tamanhos */
 $breakpoints: (
-  "sm": 767px,
-  "md": 992px,
-  "lg": 1200px
+  xs: 32rem,
+  sm: 48rem,
+  md: 72rem,
+  lg: 96rem,
+  xl: 102rem,
+  xx: 120rem
 );
