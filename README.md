@@ -13,3 +13,11 @@ It's packed with:
 ... among other things.
 
 Feel free to use it in your projects!
+
+## Installation
+
+* Clone this repository: `git clone https://github.com/hildersantos/middleman-on-steroids`
+* Go to the folder created: `cd path_to_installation`
+* Run `bundle install`
+* Run `npm install` (or `yarn` if you're using it - *recommended*)
+* That's all. You're good to go!
