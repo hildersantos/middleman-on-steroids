@@ -1,18 +1,18 @@
 /*
-Configurações gerais (variáveis)
+General config (variables & settings)
 ----------
 */
 
-/* Fontes */
-$tamanho-base: 16px; // Tamanho base para a fonte
-$fonte-primaria: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-/* Tamanhos */
-$breakpoints: (
-  xs: 32rem,
-  sm: 48rem,
-  md: 72rem,
-  lg: 96rem,
-  xl: 102rem,
-  xx: 120rem
+/* Breakpoints
+ * - This uses sass-mq package. Usage: @include `mq($from: size1, $until: size2)` or `mq($from: size)`
+ */
+$mq-breakpoints: (
+  extra-small: 32rem,
+  small: 48rem,
+  medium: 72rem,
+  large: 96rem,
+  extra-large: 102rem,
+  extra-extra: 120rem
 );
+
+@import "mq" // Imports the sass-mq package from node

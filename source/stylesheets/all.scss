@@ -3,15 +3,4 @@
 // Core (estilos base, configurações, funções, etc)
 @import "core/reset";
 @import "core/config";
-@import "core/functions";
-@import "core/mixins";
-@import "core/placeholders";
-@import "core/colors";
-@import "core/animations";
 @import "core/base";
-
-// Components (componentes genéricos)
-@import "components/buttons";
-
-// Componentes da UI (header, footer, sidebar, widgets, etc)
-@import "components/website";

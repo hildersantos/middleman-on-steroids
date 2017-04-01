@@ -41,7 +41,7 @@ module.exports = {
         test: /.*\.scss$/,
         loader: ExtractTextPlugin.extract(
           "style",
-          "css!postcss!sass?sourceMaps&includePaths[]=" + __dirname + "/node_modules/normalize.css"
+          "css!postcss!sass?sourceMaps&includePaths[]=" + __dirname + "/node_modules/normalize.css&includePaths[]=" + __dirname + "/node_modules/sass-mq"
         )
       },
       {
