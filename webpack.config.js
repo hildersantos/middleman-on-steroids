@@ -1,9 +1,6 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-var cssnext = require('postcss-cssnext'),
-    lost = require('lost'),
-    fontmagician = require('postcss-font-magician');
+var path = require("path");
 
 var definePlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEVELOPMENT || false)),
@@ -18,52 +15,85 @@ module.exports = {
     ]
   },
   resolve: {
-    root: __dirname + '/source/javascripts'
+    modules: [
+      path.join(__dirname, 'source/javascripts'),
+      "node_modules"
+    ]
   },
   output: {
     path: __dirname + '/.tmp/dist',
     filename: 'javascripts/[name].js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /source\/javascripts\/.*\.js$/,
         exclude: /(node_modules|\.tmp|vendor|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: [
-            'es2015',
-            'stage-0'
-          ]
-        }
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                'env',
+                'stage-0'
+              ]
+            }
+          }
+        ]
       },
       {
         test: /.*\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          "style",
-          "css!postcss!sass?sourceMaps&includePaths[]=" + __dirname + "/node_modules/normalize.css&includePaths[]=" + __dirname + "/node_modules/sass-mq"
-        )
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            "css-loader",
+            "postcss-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                sourceMaps: true,
+                includePaths: [
+                  path.join(__dirname, "/node_modules/normalize.css"),
+                  path.join(__dirname, "/node_modules/sass-mq")
+                ]
+              }
+            }
+            
+          ]
+        })
       },
       {
         test: /\.css$/,
-        loader: "style!css"
+        use: [
+          "style-loader",
+          "css-loader"
+        ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'url-loader?limit=30000&name=fonts/[name]-[hash].[ext]'
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 30000,
+              name: "fonts/[name]-[hash].[ext]"
+            }
+          }
+        ]
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'url-loader?limit=30000&name=images/[name]-[hash].[ext]'
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 30000,
+              name: "images/[name]-[hash].[ext]"
+            }
+          }
+        ]
       }
     ]
-  },
-  postcss: function() {
-    return [
-      cssnext,
-      lost,
-      fontmagician
-    ];
   },
   plugins: [
     new webpack.ProvidePlugin({
